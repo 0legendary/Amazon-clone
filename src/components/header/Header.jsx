@@ -2,42 +2,33 @@ import React, { useState } from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
+import LanguageIcon from '@mui/icons-material/Language';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { logo } from "../../assets/index";
+import { allItems } from '../../constants';
+import HeaderBottom from './HeaderBottom';
 
 function Header() {
   const [showAll, setShowAll] = useState(false)
-  console.log(showAll)
-  const allItems = [
-    { _id: "100", title: "All Catagories" },
-    { _id: "2", title: "Alexa Skills" },
-    { _id: "3", title: "Amazon Divices" },
-    { _id: "4", title: "Amazon fashion" },
-    { _id: "5", title: "Amazon Pharmacy" },
-    { _id: "6", title: "Appliances" },
-    { _id: "7", title: "Apps & Games" },
-    { _id: "8", title: "Baby" },
-    { _id: "9", title: "Beauty" },
-    { _id: "10", title: "Books" },
-    { _id: "11", title: "Car & Motorbikes" },
-    { _id: "12", title: "Electronics" },
-    { _id: "13", title: "Computers & Accessories" },
-    { _id: "14", title: "Furniture" },
-    { _id: "15", title: "Garden & OutClothing & Accessoriesdoors" },
-    { _id: "16", title: "Gift Cards" },
-    { _id: "17", title: "Health & personal Care" },
-  ]
+
+
   return (
     <section id="Header">
-      <div className='header-banner flex flex-col'>
+      <div className='header-banner '>
+        {/* Logo */}
         <div className='header-effect'>
           <img className='header-banner-logo' src={logo} alt="logo" />
         </div>
+
+        {/* Location */}
         <div className='banner-location header-effect'>
           <LocationOnIcon />
           <p className='banner-location'>
             Delivery to {""} <span className='banner-location-span'>Kerala</span>
           </p>
         </div>
+
+        {/* Search Bar */}
         <div className='searchbar'>
           <span onClick={() => setShowAll(!showAll)}>All<span><ArrowDropDownIcon /></span></span>
           {
@@ -57,6 +48,36 @@ function Header() {
             <SearchIcon />
           </span>
         </div>
+
+        {/* language */}
+        <div className='header-effect font1'>
+          <p><LanguageIcon />EN<ArrowDropDownIcon /></p>
+        </div>
+
+
+        {/* SignIn */}
+        <div className='sign-in header-effect'>
+          <p>Hello, Sign in</p>
+          <p className='font1'>Account & Lists {""}
+            <span><ArrowDropDownIcon /></span>
+          </p>
+        </div>
+
+        {/* Returns & Orders */}
+        <div className='sign-in header-effect'>
+          <p>Returns</p>
+          <p className='font1'>& Orders</p>
+        </div>
+
+        {/* Cart */}
+        <div className='sign-in header-effect'>
+
+          <p className='cart-text'><ShoppingCartIcon className='cart-icon' /> Cart<span className='cart-number'>0</span></p>
+        </div>
+
+      </div>
+      <div>
+        <HeaderBottom />
       </div>
     </section >
   );
