@@ -325,3 +325,13 @@ body {
 .close-icon-side-bar{
    font-size: 2rem !important;
 }
+
+/* Banner */
+.banner{
+  width: 100%;
+}
+.banner-1{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}

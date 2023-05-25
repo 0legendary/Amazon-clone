@@ -35,7 +35,7 @@ function HeaderBottom() {
         <li className='header-effect'>New Releases</li>
         <li className='header-effect'>Coupons</li>
         <li className='header-effect'>Home & Kitchen</li>
-        <li className='header-effect bottom-list'>New Launches From Mobiles, Electronics & more | Shop now</li>
+        {/* <li className='header-effect bottom-list'>New Launches From Mobiles, Electronics & more | Shop now</li> */}
       </ul>
       {/* Side NavBar */}
 
