@@ -1,8 +1,12 @@
 import React from 'react'
+import { logo,bdFlag} from '../../assets'
+import LanguageIcon from '@mui/icons-material/Language';
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 
 function FooterMiddle() {
     return (
         <div className='footer-middle'>
+            {/* Top */}
             <div className='middle-container'>
                 <div className='ft-md-text'>
                     <div className='ft-md-container place-items-center items-center'>
@@ -39,7 +43,7 @@ function FooterMiddle() {
                         <div>
                             <h3 className='ft-md-heading'>Let Us Help You</h3>
                             <ul>
-                                <li className='ft-md-lists'COVID-19 and Amazon></li>
+                                <li className='ft-md-lists'>COVID-19 and Amazon</li>
                                 <li className='ft-md-lists'>Your Account</li>
                                 <li className='ft-md-lists'>Returns Centre</li>
                                 <li className='ft-md-lists'>100% Purchase Protection</li>
@@ -49,6 +53,20 @@ function FooterMiddle() {
                         </div>
                     </div>
 
+                </div>
+            </div>
+            {/* Bottom */}
+            <div className='bottom-footer'>
+                <div>
+                    <img className='footer-logo' src={logo} alt="Logo" />
+                </div>
+                <div className='footer-language-div'>
+                    <p className='footer-language'>
+                        <span><LanguageIcon className='language-icon' />
+                        </span> English <span><UnfoldMoreIcon className='language-icon' /></span></p>
+                </div>
+                <div>
+                    <img src={bdFlag} alt="" />
                 </div>
             </div>
         </div>
