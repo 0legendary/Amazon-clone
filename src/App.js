@@ -9,6 +9,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom"
+import { productsData } from "./api/api";
 
 
 const Layout = () => {
@@ -22,15 +23,12 @@ const Layout = () => {
   )
 }
 
-
-
-
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home/>}></Route>
+          <Route index element={<Home/>} loader={productsData}></Route>
         </Route>
         
       
@@ -38,7 +36,7 @@ function App() {
   )
 
   return (
-    <div className="font">
+    <div className="font font-bg">
       <RouterProvider router={router}></RouterProvider>
 
     </div>
