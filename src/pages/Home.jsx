@@ -6,7 +6,10 @@ function Home() {
   return (
     <div>
       <Banner/>
-      <Products/>
+      <div className='p-main'>
+        <Products/>
+      </div>
+      
     </div>
   )
 }
