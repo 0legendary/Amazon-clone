@@ -17,3 +17,60 @@ export const allItems = [
     { _id: "16", title: "Gift Cards" },
     { _id: "17", title: "Health & personal Care" },
   ]
+export const footerBottomItem = [
+  {
+    _id: "1001",
+    title: "AbeBooks",
+    des: "Books, art",
+    des1:"& collectibles",
+    
+  },
+  {
+    _id: "1002",
+    title: "Amazon Web Services",
+    des: "Scalable Cloud",
+    des1:"Computing Services"
+  },
+  {
+    _id: "1003",
+    title: "Audible",
+    des: "Download",
+    des1:"Audio Books"
+  },
+  {
+    _id: "1004",
+    title: "	DPReview",
+    des: "Digital",
+    des1:" Photography"
+  },
+  {
+    _id: "1005",
+    title: "IMDb",
+    des: " Movies, TV",
+    des1:" & Celebrities"
+  },
+  {
+    _id: "1006",
+    title: "Shopbop",
+    des: "Designer",
+    des1:"Fashion Brands"
+  },
+  {
+    _id: "1007",
+    title: "Amazon Business",
+    des: " Everything For",
+    des1:"Your Business"
+  },
+  {
+    _id: "1008",
+    title: "Prime Now",
+    des: "2-Hour Delivery",
+    des1:"on Everyday Items"
+  },
+  {
+    _id: "1009",
+    title: "Amazon Prime Music",
+    des: " 100 million songs, ad-free",
+    des1:"Over 15 million podcast episodes"
+  },
+]

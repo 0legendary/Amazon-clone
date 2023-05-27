@@ -1,7 +1,11 @@
 import React from 'react'
-import { logo,bdFlag} from '../../assets'
+import { logo} from '../../assets'
 import LanguageIcon from '@mui/icons-material/Language';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
+
+
+
+
 
 function FooterMiddle() {
     return (
@@ -65,10 +69,11 @@ function FooterMiddle() {
                         <span><LanguageIcon className='language-icon' />
                         </span> English <span><UnfoldMoreIcon className='language-icon' /></span></p>
                 </div>
-                <div>
-                    <img src={bdFlag} alt="" />
-                </div>
+                
             </div>
+            {/* <div>
+                <p>Australia</p>
+            </div> */}
         </div>
     )
 }

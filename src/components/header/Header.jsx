@@ -14,7 +14,7 @@ function Header() {
 
   return (
     <section id="Header">
-      <div className='header-banner '>
+      <div className='header-banner z-50'>
         {/* Logo */}
         <div className='header-effect'>
           <img className='header-banner-logo' src={logo} alt="logo" />

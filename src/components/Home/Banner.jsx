@@ -80,19 +80,19 @@ function Banner() {
             <div className='banner-1'>
                 <Slider {...settings}>
                     <div>
-                        <img src={bannerImgOne} alt="Image" />
+                        <img src={bannerImgOne} alt="Banner1" />
                     </div>
                     <div>
-                        <img src={bannerImgTwo} alt="Image" />
+                        <img src={bannerImgTwo} alt="Banner2" />
                     </div>
                     <div>
-                        <img src={bannerImgThree} alt="Image" />
+                        <img src={bannerImgThree} alt="Banner3" />
                     </div>
                     <div>
-                        <img src={bannerImgFour} alt="Image" />
+                        <img src={bannerImgFour} alt="Banner4" />
                     </div>
                     <div>
-                        <img src={bannerImgFive} alt="Image" />
+                        <img src={bannerImgFive} alt="Banner5" />
                     </div>
 
                 </Slider>

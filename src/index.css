@@ -12,6 +12,11 @@ body {
 }
 
 /* Header section */
+#Header{
+position: sticky;
+  top: 0px; 
+  z-index: 50;
+}
 .header-banner {
   background-color: #0D1921;
   width: 100%;
@@ -20,6 +25,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  
 }
 
 .header-effect {
@@ -486,6 +492,7 @@ body {
 .footer-language-div {
   display: flex;
   gap: 0.5rem;
+  padding-left: 6rem;
 }
 
 .footer-language {
@@ -506,6 +513,55 @@ body {
   border-color: rgb(254 189 105);
   transition-duration: 200ms;
 }
-.language-icon{
-  font-size:medium !important;
+
+.language-icon {
+  font-size: medium !important;
+}
+
+/* Footer Bottom */
+
+.fb-container {
+  width: 100%;
+  background-color: rgb(19 26 34);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.ft-div {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.ft-lists {
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  place-content: center;
+  color: rgb(156 163 175);
+  gap: 0.75rem;
+  display: grid;
+  align-items: center;
+  align-items: start;
+}
+
+.ft-div-title {
+
+  font-weight: 600;
+  font-size: 12px;
+  color: rgb(221 221 221);
+  line-height: .75rem;
+  margin-bottom: 2px;
+}
+.ft-div-lists {
+  width: 6rem;
+  letter-spacing: -0.025em;
+  font-size: 12px;
+  color: rgb(153 153 153);
+  line-height: .75rem;
+}
+
+.ft-div-hv:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
 }
