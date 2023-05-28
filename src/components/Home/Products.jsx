@@ -9,10 +9,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 function Products() {
     const data = useLoaderData();
     const productData = data.data;
-    console.log(productData)
+    
 
     return (
-        <div className='product-div'>
+        <div className='product-div grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-10'>
             {productData.map((item) => (
                 <div key={item.id} className='p-box'>
                     <span className='p-category'>{item.category}</span>

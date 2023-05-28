@@ -1,6 +1,6 @@
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SideNavContent from './SideNavContent';
@@ -8,33 +8,33 @@ import SideNavContent from './SideNavContent';
 function HeaderBottom() {
   const ref = useRef();
   const [sideBar, setsideBar] = useState(false)
-  useEffect(()=>{
-    document.body.addEventListener("click",(e)=>{
-      if(e.target.contains(ref.current)){
+  useEffect(() => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.contains(ref.current)) {
         setsideBar(false)
       }
     })
-  },[ref,sideBar])
+  }, [ref, sideBar])
   return (
     <div className='header-bottom'>
       {/* List Items */}
       <ul className='header-bottom-lists'>
         <li onClick={() => setsideBar(true)} className='header-effect menu'><MenuIcon className='menu-icon' />All</li>
-        <li className='header-effect'>Fresh</li>
-        <li className='header-effect'>Amazon miniTV</li>
-        <li className='header-effect'>Sell</li>
-        <li className='header-effect'>Amazon Pay</li>
-        <li className='header-effect'>Today's Deal</li>
-        <li className='header-effect'>Best Sellers</li>
-        <li className='header-effect'>Buy Again</li>
-        <li className='header-effect'>Prime</li>
-        <li className='header-effect'>Mobiles</li>
-        <li className='header-effect'>Customer Service</li>
-        <li className='header-effect'>Gift Card</li>
-        <li className='header-effect'>Electronics</li>
-        <li className='header-effect'>New Releases</li>
-        <li className='header-effect'>Coupons</li>
-        <li className='header-effect'>Home & Kitchen</li>
+        <li className='header-effect hidden md:inline-flex'>Fresh</li>
+        <li className='header-effect hidden md:inline-flex'>Amazon miniTV</li>
+        <li className='header-effect hidden md:inline-flex'>Sell</li>
+        <li className='header-effect hidden md:inline-flex'>Amazon Pay</li>
+        <li className='header-effect hidden md:inline-flex'>Today's Deal</li>
+        <li className='header-effect hidden md:inline-flex'>Best Sellers</li>
+        <li className='header-effect hidden md:inline-flex'>Buy Again</li>
+        <li className='header-effect hidden md:inline-flex'>Prime</li>
+        <li className='header-effect hidden md:inline-flex'>Mobiles</li>
+        <li className='header-effect hidden md:inline-flex'>Customer Service</li>
+        <li className='header-effect hidden md:inline-flex'>Gift Card</li>
+        <li className='header-effect hidden md:inline-flex'>Electronics</li>
+        <li className='header-effect hidden md:inline-flex'>New Releases</li>
+        <li className='header-effect hidden md:inline-flex'>Coupons</li>
+        <li className='header-effect hidden md:inline-flex'>Home & Kitchen</li>
         {/* <li className='header-effect bottom-list'>New Launches From Mobiles, Electronics & more | Shop now</li> */}
       </ul>
       {/* Side NavBar */}
@@ -42,14 +42,15 @@ function HeaderBottom() {
       {
         sideBar && (
           <div className="side-bar">
-            <motion.div ref={ref} initial={{x:-500,opacity:1}} animate={{x:0,opacity:1}} 
-                transition={{duration:.5}}className='side-bar-items'>
-              <div  className='side-bar-border'>
+            <motion.div ref={ref} initial={{ x: -500, opacity: 1 }} animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: .5 }} className='side-bar-items  '>
+              <div className='side-bar-border w-[85%] md:w-[365px]  '>
                 <div className='inner-side-bar'>
                   <AccountCircleIcon />
                   <h3 className='side-nav-acc'>Hello, Sign In</h3>
+                  <span onClick={() => setsideBar(false)} className="close-icon left-[300px] md:left-[360px]"><CloseIcon className='close-icon-side-bar' /></span>
                 </div>
-                
+
 
                 <SideNavContent
                   title="Trending"
@@ -88,7 +89,7 @@ function HeaderBottom() {
                 />
               </div>
 
-              <span onClick={()=>setsideBar(false)} className="close-icon"><CloseIcon className='close-icon-side-bar'/></span>
+
             </motion.div>
           </div>
         )

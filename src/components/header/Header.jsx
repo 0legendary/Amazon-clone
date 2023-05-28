@@ -21,7 +21,7 @@ function Header() {
         </div>
 
         {/* Location */}
-        <div className='banner-location header-effect'>
+        <div className='banner-location header-effect hidden mdl:inline-flex'>
           <LocationOnIcon />
           <p className='banner-location'>
             Delivery to {""} <span className='banner-location-span'>Kerala</span>
@@ -29,7 +29,7 @@ function Header() {
         </div>
 
         {/* Search Bar */}
-        <div className='searchbar'>
+        <div className='searchbar hidden lgl:flex'>
           <span onClick={() => setShowAll(!showAll)}>All<span><ArrowDropDownIcon /></span></span>
           {
             showAll && (
@@ -50,21 +50,21 @@ function Header() {
         </div>
 
         {/* language */}
-        <div className='header-effect font1'>
+        <div className='header-effect font1  hidden mdl:inline-flex'>
           <p><LanguageIcon />EN<ArrowDropDownIcon /></p>
         </div>
 
 
         {/* SignIn */}
         <div className='sign-in header-effect'>
-          <p>Hello, Sign in</p>
-          <p className='font1'>Account & Lists {""}
+          <p className='text-xs mdl:text-sm text-white mdl:text-lightText'>Hello, Sign in</p>
+          <p className='font1  hidden mdl:inline-flex'>Account & Lists {""}
             <span><ArrowDropDownIcon /></span>
           </p>
         </div>
 
         {/* Returns & Orders */}
-        <div className='sign-in header-effect'>
+        <div className='hidden lgl:flex sign-in header-effect'>
           <p>Returns</p>
           <p className='font1'>& Orders</p>
         </div>
