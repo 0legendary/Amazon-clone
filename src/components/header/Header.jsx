@@ -72,7 +72,8 @@ function Header() {
         {/* Cart */}
         <div className='sign-in header-effect'>
 
-          <p className='cart-text'><ShoppingCartIcon className='cart-icon' /> Cart<span className='cart-number'>0</span></p>
+          <p className='cart-text'><ShoppingCartIcon className='cart-icon' /> Cart
+          <span className='cart-number '>0</span></p>
         </div>
 
       </div>

@@ -11,10 +11,11 @@ function FooterMiddle() {
     return (
         <div className='footer-middle'>
             {/* Top */}
-            <div className='middle-container'>
-                <div className='ft-md-text'>
-                    <div className='ft-md-container place-items-center items-center'>
-                        <div>
+            <div className='middle-container '>
+                <div className='ft-md-text '>
+                    <div className='ft-md-container grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-4 gap-6
+                                    md:place-items-center md:items-start'>      
+                        <div className='w-full'>
                             <h3 className='ft-md-heading'>Get to Know Us</h3>
                             <ul>
                                 <li className='ft-md-lists'>About Us</li>
@@ -23,7 +24,7 @@ function FooterMiddle() {
                                 <li className='ft-md-lists'>Amazon Science</li>
                             </ul>
                         </div>
-                        <div>
+                        <div className='w-full' >
                             <h3 className='ft-md-heading'>Connect with Us</h3>
                             <ul>
                                 <li className='ft-md-lists'>Facebook</li>
@@ -31,7 +32,7 @@ function FooterMiddle() {
                                 <li className='ft-md-lists'>Instagram</li>
                             </ul>
                         </div>
-                        <div>
+                        <div className='w-full'>
                             <h3 className='ft-md-heading'>Make Money with Us</h3>
                             <ul>
                                 <li className='ft-md-lists'>Sell on Amazon</li>
@@ -44,7 +45,7 @@ function FooterMiddle() {
                                 <li className='ft-md-lists'>Amazon Pay on Merchants</li>
                             </ul>
                         </div>
-                        <div>
+                        <div className='w-full'>
                             <h3 className='ft-md-heading'>Let Us Help You</h3>
                             <ul>
                                 <li className='ft-md-lists'>COVID-19 and Amazon</li>

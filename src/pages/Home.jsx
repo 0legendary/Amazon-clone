@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
       <Banner/>
-      <div className='p-main -mt-14 xl:-mt-36'>
+      <div className='p-main -mt-10 xl:-mt-36'>
         <Products/>
       </div>
       

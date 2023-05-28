@@ -59,7 +59,7 @@ body {
   line-height: 2rem;
   color: rgb(204, 204, 204);
   font-family: lightText;
-  
+
 }
 
 .banner-location-span {
@@ -166,6 +166,7 @@ body {
   justify-content: center;
   color: white;
   font-weight: 500;
+  position: relative;
 }
 
 .font1 {
@@ -190,8 +191,6 @@ body {
   position: absolute;
   font-size: 0.75rem;
   line-height: 1rem;
-  top: 27px;
-  right: 3.2rem;
   font-weight: 600;
   padding: 0.25rem;
   height: 1rem;
@@ -201,6 +200,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -47%;
+  margin-left: 24%;
 }
 
 /* Header Bottom */
@@ -431,8 +432,10 @@ body {
   width: 100%;
   border-bottom-width: 1px;
   border-color: rgb(107 114 128);
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  /* padding-top: 2.5rem;
+  padding-bottom: 2.5rem; */
+  padding: 2.5rem;
+
 }
 
 .ft-md-text {
@@ -473,9 +476,9 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  place-items: center;
-  align-items: center;
-  align-items: start;
+  /* place-items: center;
+  align-items: center; */
+
 
 }
 
@@ -541,7 +544,8 @@ body {
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
-
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .ft-lists {
@@ -778,6 +782,3 @@ body {
   --tw-gradient-to: #eab308 var(--tw-gradient-to-position);
   transition-duration: 200ms;
 }
-
-
-
