@@ -5,8 +5,11 @@ import ApiIcon from '@mui/icons-material/Api';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../Redux/amazonSlice';
 
 function Products() {
+    const dispatch = useDispatch()
     const data = useLoaderData();
     const productData = data.data;
     
@@ -41,7 +44,15 @@ function Products() {
                             </div>
                         </div>
                         <div>
-                            <button className="p-addfav-button">Add to Cart</button>
+                            <button onClick={()=>dispatch(addToCart({
+                                id:item.id,
+                                title:item.title,
+                                description:item.description,
+                                price:item.price,
+                                category:item.category,
+                                image:item.image,
+                                quantity:1,
+                            }))} className="p-addfav-button">Add to Cart</button>
                         </div>
                     </div>
                 </div>

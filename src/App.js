@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./components/header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home"
+import { productsData } from "./api/api";
+import SignIn from "./pages/SignIn";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -9,7 +11,8 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom"
-import { productsData } from "./api/api";
+import Cart from "./pages/Cart";
+
 
 
 const Layout = () => {
@@ -29,6 +32,8 @@ function App() {
       
         <Route path="/" element={<Layout />}>
           <Route index element={<Home/>} loader={productsData}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/signin" element={<SignIn/>}></Route>
         </Route>
         
       

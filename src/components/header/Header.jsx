@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,18 +8,23 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { logo } from "../../assets/index";
 import { allItems } from '../../constants';
 import HeaderBottom from './HeaderBottom';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const [showAll, setShowAll] = useState(false)
+  const products = useSelector((state) => state.amazonReducer.products)
 
 
   return (
     <section id="Header">
       <div className='header-banner z-50'>
         {/* Logo */}
-        <div className='header-effect'>
-          <img className='header-banner-logo' src={logo} alt="logo" />
-        </div>
+        <Link to="/">
+          <div className='header-effect'>
+            <img className='header-banner-logo' src={logo} alt="logo" />
+          </div>
+        </Link>
+
 
         {/* Location */}
         <div className='banner-location header-effect hidden mdl:inline-flex'>
@@ -70,11 +76,16 @@ function Header() {
         </div>
 
         {/* Cart */}
-        <div className='sign-in header-effect'>
+        <Link to="/cart">
+          <div className='sign-in header-effect'>
 
           <p className='cart-text'><ShoppingCartIcon className='cart-icon' /> Cart
-          <span className='cart-number '>0</span></p>
+            <span className='cart-number '>
+              {products.length > 0 ? products.length : 0}
+            </span></p>
         </div>
+        </Link>
+        
 
       </div>
       <div>
