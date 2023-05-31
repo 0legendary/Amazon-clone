@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 function Header() {
   const [showAll, setShowAll] = useState(false)
-  const products = useSelector((state) => state.amazonReducer.products)
+  const products = useSelector((state) => state.amazon.products)
 
 
   return (
