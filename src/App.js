@@ -20,25 +20,38 @@ const Layout = () => {
   return (
     <div>
       <Header />
-      <ScrollRestoration/>
+      <ScrollRestoration />
       <Outlet />
       <Footer />
     </div>
 
   )
 }
+const SignInLayout = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      
+      <Route>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home/>} loader={productsData}></Route>
-          <Route path="/cart" element={<Cart/>}></Route>
-          <Route path="/signin" element={<SignIn/>}></Route>
+          <Route index element={<Home />} loader={productsData}></Route>
+          <Route path="/cart" element={<Cart />}></Route>
         </Route>
         
-      
+        <Route path="/signin" element={<SignInLayout />}>
+          <Route index element={<SignIn />} />
+        </Route>
+      </Route>
+
+
+
+
     )
   )
 

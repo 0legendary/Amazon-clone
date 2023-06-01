@@ -62,12 +62,15 @@ function Header() {
 
 
         {/* SignIn */}
-        <div className='sign-in header-effect'>
+        <Link to='/signin'>
+          <div className='sign-in header-effect'>
           <p className='text-xs mdl:text-sm text-white mdl:text-lightText'>Hello, Sign in</p>
           <p className='font1  hidden mdl:inline-flex'>Account & Lists {""}
             <span><ArrowDropDownIcon /></span>
           </p>
         </div>
+        </Link>
+        
 
         {/* Returns & Orders */}
         <div className='hidden lgl:flex sign-in header-effect'>
