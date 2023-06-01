@@ -1227,7 +1227,7 @@ body {
 }
 
 .privacy-text {
-  font-size: 0.875rem;
+  font-size: 0.800rem;
   line-height: 1.25rem;
   color: rgb(0 0 0);
   line-height: 1rem;
@@ -1276,6 +1276,10 @@ body {
 .new-to {
   width: 33.333333%;
   text-align: center;
+}
+
+.create-acc-link {
+  width: 100%;
 }
 
 .signin-create-acc {
@@ -1342,9 +1346,9 @@ body {
 
 
 .sigin-bottom-text {
-  font-size: 0.75rem;
+  font-size: 0.800rem;
   line-height: 1rem;
-  color: rgb(37 99 235);
+  color: rgb(0, 76, 240);
 
 }
 
@@ -1362,8 +1366,17 @@ body {
   cursor: pointer;
   transition-duration: 100ms;
 }
-.sigin-bottom-txt{
-  font-size: 0.75rem;
-      line-height: 1rem;
- color: rgb(75 85 99);
+
+.sigin-bottom-txt {
+  font-size: 0.800rem;
+  line-height: 1rem;
+  color: rgb(75 85 99);
+}
+
+.sign-up-password-imp {
+  color: rgb(0, 0, 0);
+  font-size: 0.800rem;
+  line-height: 1.25rem;
+
+  
 }

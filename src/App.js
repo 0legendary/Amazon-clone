@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home"
 import { productsData } from "./api/api";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/Signup";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -34,6 +35,14 @@ const SignInLayout = () => {
     </div>
   );
 };
+const SignUpLayout = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
+
 
 function App() {
   const router = createBrowserRouter(
@@ -46,6 +55,9 @@ function App() {
         
         <Route path="/signin" element={<SignInLayout />}>
           <Route index element={<SignIn />} />
+        </Route>
+        <Route path="/signup" element={<SignUpLayout />}>
+          <Route index element={<SignUp />} />
         </Route>
       </Route>
 
