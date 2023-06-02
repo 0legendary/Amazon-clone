@@ -1,10 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { darkLogo } from '../assets/index'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link } from 'react-router-dom';
 function Signup() {
-  const handleRegistration=(e)=>{
+  const [ClientName, setClientName] = useState("")
+  const [Email, setEmail] = useState("")
+  const [Password, setPassword] = useState("")
+  const [CPassword, setCPassword] = useState("")
+
+  // Error Message
+  const [ErrClientName, setErrClientName] = useState("")
+  const [ErrEmail, setErrEmail] = useState("")
+  const [ErrPassword, setErrPassword] = useState("")
+  const [ErrCPassword, setErrCPassword] = useState("")
+
+  // handle Function
+  const handleName = (e) => {
+    setClientName(e.target.value)
+    setErrClientName('')
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+    setErrEmail('')
+  }
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+    setErrPassword('')
+  }
+  const handleCPassword = (e) => {
+    setCPassword(e.target.value)
+    setErrCPassword('')
+  }
+
+  const emailValidation= (Email)=>{
+    return String(Email)
+    .toLowerCase()
+    .match(/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/)
+  }
+  
+  //Submit Function
+  const handleRegistration = (e) => {
     e.preventDefault()
+    if (!ClientName) {
+      setErrClientName("Enter your name")
+    }
+    if (!Email) {
+      setErrEmail("Enter your email")
+    }else{
+      if(!emailValidation(Email)){
+        setErrEmail("Enter a valid Email")
+      }
+    }
+    if (!Password) {
+      setErrPassword("Enter your password")
+    } else {
+      if (Password.length <= 6) {
+        setErrCPassword("Password must be at least 6 characters")
+      }
+    }
+    if(!CPassword){
+      setErrCPassword("Confirm your password")
+    }else{
+      if(CPassword !== Password){
+        setErrCPassword("Password not matched")
+      }
+    }
+
+    if(ClientName && Email && emailValidation(Email) && Password 
+    && Password.length >= 6 && CPassword && CPassword === Password){
+      console.log(ClientName,Email,Password,CPassword)
+      setClientName("")
+      setEmail("")
+      setPassword("")
+      setCPassword("")
+    }
+    
   }
   return (
     <div className='sign-in-container'>
@@ -16,20 +86,52 @@ function Signup() {
             <div className='form-columns '>
               <div className='input-email-div'>
                 <p className='email-text'>Your name</p>
-                <input className='input-form' type="name" />
+                <input onChange={handleName} value={ClientName} className='input-form-up' type="name" />
+                {
+                  ErrClientName && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {ErrClientName}
+                    </p>
+                  )
+                }
               </div>
               <div className='input-email-div'>
                 <p className='email-text'>Email or Phone number</p>
-                <input className='input-form' type="email" />
+                <input onChange={handleEmail} value={Email} className='input-form' type="email" />
+                {
+                  ErrEmail && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {ErrEmail}
+                    </p>
+                  )
+                }
               </div>
               <div className='input-email-div'>
                 <p className='email-text'>Password</p>
-                <input className='input-form' type="password" />
+                <input onChange={handlePassword} value={Password} className='input-form-up' type="password" />
+                {
+                  ErrPassword && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {ErrPassword}
+                    </p>
+                  )
+                }
               </div>
               <div className='input-email-div'>
                 <p className='email-text'>Re-enter Password</p>
-                <input className='input-form' type="password" />
-                <p className='sign-up-password-imp'>Passwords must be at least 6 characters.</p>
+                <input onChange={handleCPassword} value={CPassword}  className='input-form-up' type="password" />
+                {
+                  ErrCPassword && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {ErrCPassword}
+                    </p>
+                  )
+                }
+                
               </div>
               <button onClick={handleRegistration} className="form-continue">Continue</button>
             </div>
@@ -38,14 +140,14 @@ function Signup() {
               <span className='privacy-span'>{" "}Privacy Notice.{" "}</span>
             </p>
             <p className='privacy-text'>
-              Already have an account? <Link to='/signin'><span className='need-help'>Sign in</span></Link> 
+              Already have an account? <Link to='/signin'><span className='need-help'>Sign in</span></Link>
               <ArrowRightIcon />
               <br />
               Buying for work? <span className='need-help'>Create a free business account</span>
             </p>
 
           </div>
-          
+
 
         </form>
       </div>
