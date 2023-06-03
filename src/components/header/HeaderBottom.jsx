@@ -4,10 +4,12 @@ import { motion } from "framer-motion"
 import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SideNavContent from './SideNavContent';
+import { useSelector } from 'react-redux';
 
 function HeaderBottom() {
   const ref = useRef();
   const [sideBar, setsideBar] = useState(false)
+  const userInfo = useSelector((state) => state.amazon.userInfo)
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (e.target.contains(ref.current)) {
@@ -46,8 +48,21 @@ function HeaderBottom() {
               transition={{ duration: .5 }} className='side-bar-items  '>
               <div className='side-bar-border w-[85%] md:w-[365px]  '>
                 <div className='inner-side-bar'>
-                  <AccountCircleIcon />
-                  <h3 className='side-nav-acc'>Hello, Sign In</h3>
+                  {
+                    userInfo ? (
+                      <img className='account-image' src={userInfo.image} alt="User image" />
+                    ) : (<AccountCircleIcon />)
+                  }
+                  {
+                    userInfo ? 
+                    (
+                      <h3 className='side-nav-acc'>{userInfo.userName}</h3>
+                    ):
+                      (
+                        <h3 className='side-nav-acc'>Hello, Sign In</h3>
+                      )
+                  }
+
                   <span onClick={() => setsideBar(false)} className="close-icon left-[300px] md:left-[360px]"><CloseIcon className='close-icon-side-bar' /></span>
                 </div>
 

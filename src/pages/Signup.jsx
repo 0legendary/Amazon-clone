@@ -23,6 +23,7 @@ function Signup() {
   const [ErrCPassword, setErrCPassword] = useState("")
   const [FirebaseErr, setFirebaseErr] = useState("")
 
+ 
   //Loading message
   const [loading, setLoading] = useState(false)
   const [SuccessMsg, setSuccessMsg] = useState("")
@@ -111,7 +112,6 @@ function Signup() {
 
           if (errorCode.includes("auth/email-already-in-use")) {
             setFirebaseErr("Email Already in use, Try another one")
-
           }
         });
 

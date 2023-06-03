@@ -13,8 +13,8 @@ import { useSelector } from 'react-redux';
 function Header() {
   const [showAll, setShowAll] = useState(false)
   const products = useSelector((state) => state.amazon.products)
-
-
+  const userInfo = useSelector((state) => state.amazon.userInfo)
+  
   return (
     <section id="Header">
       <div className='header-banner z-50'>
@@ -64,7 +64,12 @@ function Header() {
         {/* SignIn */}
         <Link to='/signin'>
           <div className='sign-in header-effect'>
-          <p className='text-xs mdl:text-sm text-white mdl:text-lightText'>Hello, Sign in</p>
+            {
+              userInfo?
+              <p className='text-xs mdl:text-sm text-white mdl:text-lightText'>{userInfo.userName}</p>:
+              <p className='text-xs mdl:text-sm text-white mdl:text-lightText'>Hello, Sign in</p>
+            }
+          
           <p className='font1  hidden mdl:inline-flex'>Account & Lists {""}
             <span><ArrowDropDownIcon /></span>
           </p>
