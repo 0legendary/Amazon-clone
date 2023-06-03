@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import { darkLogo } from '../assets/index'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Link } from 'react-router-dom';
+import { motion } from "framer-motion"
+import { Link, useNavigate } from 'react-router-dom';
+import { RotatingLines } from 'react-loader-spinner'
+
+
+
 function Signup() {
+  const navigate = useNavigate()
+  const auth = getAuth();
   const [ClientName, setClientName] = useState("")
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
@@ -13,6 +21,11 @@ function Signup() {
   const [ErrEmail, setErrEmail] = useState("")
   const [ErrPassword, setErrPassword] = useState("")
   const [ErrCPassword, setErrCPassword] = useState("")
+  const [FirebaseErr, setFirebaseErr] = useState("")
+
+  //Loading message
+  const [loading, setLoading] = useState(false)
+  const [SuccessMsg, setSuccessMsg] = useState("")
 
   // handle Function
   const handleName = (e) => {
@@ -32,12 +45,12 @@ function Signup() {
     setErrCPassword('')
   }
 
-  const emailValidation= (Email)=>{
+  const emailValidation = (Email) => {
     return String(Email)
-    .toLowerCase()
-    .match(/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/)
+      .toLowerCase()
+      .match(/^\w+([-]?\w+)@\w+([-]?\w+)(\.\w{2,3})+$/)
   }
-  
+
   //Submit Function
   const handleRegistration = (e) => {
     e.preventDefault()
@@ -46,8 +59,9 @@ function Signup() {
     }
     if (!Email) {
       setErrEmail("Enter your email")
-    }else{
-      if(!emailValidation(Email)){
+      setFirebaseErr("")
+    } else {
+      if (!emailValidation(Email)) {
         setErrEmail("Enter a valid Email")
       }
     }
@@ -58,23 +72,58 @@ function Signup() {
         setErrCPassword("Password must be at least 6 characters")
       }
     }
-    if(!CPassword){
+    if (!CPassword) {
       setErrCPassword("Confirm your password")
-    }else{
-      if(CPassword !== Password){
+    } else {
+      if (CPassword !== Password) {
         setErrCPassword("Password not matched")
       }
     }
 
-    if(ClientName && Email && emailValidation(Email) && Password 
-    && Password.length >= 6 && CPassword && CPassword === Password){
-      console.log(ClientName,Email,Password,CPassword)
+    if (ClientName
+      && Email
+      && emailValidation(Email)
+      && Password
+      && Password.length >= 6
+      && CPassword
+      && CPassword === Password) {
+      
+
+      setLoading(true)
+      createUserWithEmailAndPassword(auth, Email, Password)
+        .then((userCredential) => {
+          updateProfile(auth.currentUser, {
+            displayName: ClientName,
+            photoURL: 'https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png'
+          })
+          // Signed in 
+          const user = userCredential.user;
+          setLoading(false)
+          setSuccessMsg("Account Created Successfully!")
+          setTimeout(() => {
+            navigate("/signin")
+          }, 3000)
+
+
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+
+          if (errorCode.includes("auth/email-already-in-use")) {
+            setFirebaseErr("Email Already in use, Try another one")
+
+          }
+        });
+
+
+      //To clean up the form after entering it.
       setClientName("")
       setEmail("")
       setPassword("")
       setCPassword("")
+      setFirebaseErr("")
     }
-    
+
   }
   return (
     <div className='sign-in-container'>
@@ -107,6 +156,14 @@ function Signup() {
                     </p>
                   )
                 }
+                {/* {
+                  FirebaseErr && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {FirebaseErr}
+                    </p>
+                  )
+                } */}
               </div>
               <div className='input-email-div'>
                 <p className='email-text'>Password</p>
@@ -122,7 +179,7 @@ function Signup() {
               </div>
               <div className='input-email-div'>
                 <p className='email-text'>Re-enter Password</p>
-                <input onChange={handleCPassword} value={CPassword}  className='input-form-up' type="password" />
+                <input onChange={handleCPassword} value={CPassword} className='input-form-up' type="password" />
                 {
                   ErrCPassword && (
                     <p className='error-text'>
@@ -131,9 +188,42 @@ function Signup() {
                     </p>
                   )
                 }
-                
+                {
+                  FirebaseErr && (
+                    <p className='error-text'>
+                      <span className='error-text-span'>!</span>
+                      {FirebaseErr}
+                    </p>
+                  )
+                }
+
               </div>
               <button onClick={handleRegistration} className="form-continue">Continue</button>
+              {
+                loading && (
+                  <div className='flex justify-center'>
+                    <RotatingLines
+                      strokeColor="#febd69"
+                      strokeWidth="5"
+                      animationDuration="0.75"
+                      width="50"
+                      visible={true}
+                    />
+                  </div>
+                )
+              }
+              {
+                SuccessMsg && (
+                  <div>
+                    <motion.p
+                      initial={{ y: 10, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="signup-create-acc-animate"
+                    >{SuccessMsg}</motion.p>
+                  </div>
+                )
+              }
             </div>
             <p className='privacy-text'>By Continuing, you agree to Amazon's
               <span className='privacy-span'>{" "}Condition of use{" "}</span>and

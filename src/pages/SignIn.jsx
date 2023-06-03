@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { darkLogo } from '../assets/index'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link } from 'react-router-dom';
-import { Padding } from '@mui/icons-material';
+
 
 function SignIn() {
   const [Email, setEmail] = useState("")
@@ -40,7 +40,7 @@ function SignIn() {
     }
 
     if(Email && Password){
-      console.log(Email,Password)
+      
       setEmail("")
       setPassword("")
     }

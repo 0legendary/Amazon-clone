@@ -1378,27 +1378,32 @@ body {
   font-size: 0.800rem;
   line-height: 1.25rem;
 
-  
+
 }
-.error-text{
+
+.error-text {
   color: rgb(220 38 38);
- font-size: 0.875rem;
-  line-height: 1.25rem; font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
   letter-spacing: 0.025em;
   display: flex;
-  align-items: center; gap: 0.5rem;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1px;
 }
-.error-text-span{
-   font-style: italic;
-   font-family: Roboto;
-    font-weight: 800;
-    font-size: 1rem;
-        line-height: 1.5rem
+
+.error-text-span {
+  font-style: italic;
+  font-family: Roboto;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.5rem
 }
+
 .input-form-up {
   width: 100%;
-  
+
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-width: 1px;
@@ -1409,4 +1414,17 @@ body {
   line-height: 1.5rem;
   border-radius: 0.125rem;
   outline: none;
+}
+
+.signup-create-acc-animate {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: Roboto;
+  font-weight: 600;
+  color: rgb(34 197 94);
+  border-width: 1px;
+  border-color: rgb(34 197 94);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
 }
