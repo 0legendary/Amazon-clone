@@ -20,6 +20,7 @@ body {
   position: sticky;
   top: 0px;
   z-index: 50;
+ 
 }
 
 .header-banner {
@@ -30,7 +31,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-
+ 
 }
 
 .header-effect {
@@ -261,6 +262,7 @@ body {
   border-color: black;
   height: 100%;
   opacity: 1;
+  overflow-y: scroll;
 }
 
 .inner-side-bar {

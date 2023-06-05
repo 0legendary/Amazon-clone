@@ -30,10 +30,12 @@ function SignIn() {
   const handleEmail = (e) => {
     setEmail(e.target.value)
     setErrEmail('')
+    setUserEmailErr('');
   }
   const handlePassword = (e) => {
     setPassword(e.target.value)
     setErrPassword('')
+    setUserPassErr('');
   }
 
   const emailValidation = (Email) => {
@@ -43,53 +45,50 @@ function SignIn() {
   }
 
   const handleLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!Email) {
-      setErrEmail("Enter your email or phone number")
-    } else {
-      if (!emailValidation(Email)) {
-        setErrEmail("Enter a valid Email or Phone number")
+      setErrEmail('Enter your email or phone number');
+      return;
+    } else if (!emailValidation(Email)) {
+      setErrEmail('Enter a valid Email or Phone number');
+      return;
+    } else if (!Password) {
+      setErrPassword('Enter your password');
+      return;
+    }
+
+    setLoading(true);
+
+    signInWithEmailAndPassword(auth, Email, Password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        dispatch(
+          setUserInfo({
+            _id: user.uid,
+            userName: user.displayName,
+            email: user.email,
+            image: user.photoURL,
+          })
+        );
+
+        setSuccessMsg('Logged in Successfully! Welcome back!');
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
+      })
+      .catch((error) => {
+        setLoading(false);
+        const errorCode = error.code;
+
+        if (errorCode.includes('auth/user-not-found')) {
+          setUserEmailErr('The email does not exist');
+        } else if (errorCode.includes('auth/wrong-password')) {
+          setUserPassErr('Wrong password! Try again');
+        }
       }
-    }
-    if (!Password) {
-      setErrPassword("Enter your password")
-    }
-
-    if (Email && Password) {
-      setLoading(true)
-      signInWithEmailAndPassword(auth, Email, Password)
-        .then((userCredential) => {
-          // Signed in 
-          const user = userCredential.user;
-          dispatch(setUserInfo({
-            _id:user.uid,
-            userName:user.displayName,
-            email:user.email,
-            image:user.photoURL
-          }))
-          
-          setLoading(false)
-          setSuccessMsg("Logged in Sucessfully! Welcome you back!")
-          setTimeout(() => {
-            navigate("/")
-          }, 2000)
-        })
-        .catch((error) => {
-          setLoading(false)
-          const errorCode = error.code;
-          
-          if (errorCode.includes("auth/email-already-in-use")) {
-            setUserEmailErr("Email Already in use, Try another one")
-          }
-          if (errorCode.includes("auth/wrong-password")) {
-            setUserPassErr("Wrong password! try again")
-          }
-
-        });
-      setEmail("")
-      setPassword("")
-    }
-  }
+      
+      );
+  };
   return (
 
     <div className='sign-in-container'>

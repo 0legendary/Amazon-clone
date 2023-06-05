@@ -39,6 +39,9 @@ export const amazonSlice = createSlice({
 
         setUserInfo: (state, action) => {
             state.userInfo = action.payload
+        },
+        userSignOut:(state) =>{
+            state.userInfo = null
         }
     }
 })
@@ -48,6 +51,8 @@ export const { addToCart,
     resetCart,
     incrementQuantity,
     decrementQuantity,
-    setUserInfo } = amazonSlice.actions
+    setUserInfo,
+    userSignOut, 
+ } = amazonSlice.actions
     
 export default amazonSlice.reducer
