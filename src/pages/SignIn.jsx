@@ -104,7 +104,9 @@ function SignIn() {
             :
 
             <form className='signin-form'>
-              <img className='signin-logo' src={darkLogo} alt="Logo" />
+              <Link to="/">
+                <img className='signin-logo' src={darkLogo} alt="Logo" />
+              </Link>
               <div className='signin-heading border'>
                 <h2 className='form-heading'>Sign in</h2>
                 <div className='form-columns '>

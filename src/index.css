@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 
@@ -225,9 +222,6 @@ body {
   letter-spacing: 0.025em;
 }
 
-.bottom-list {
-  /* gap: 1rem; */
-}
 
 .menu {
   display: flex;
@@ -638,7 +632,7 @@ body {
 
 .align-p:hover .p-ul {
   transform: translateY(0%);
-}
+ }
 
 .p-lists {
   color: rgb(75 85 99);

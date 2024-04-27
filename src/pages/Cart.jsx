@@ -54,7 +54,7 @@ function Cart() {
                         <button onClick={() => dispatch(deleteItem(item.id))} className='delete-cart'>Delete Item</button>
                       </div>
                       <div>
-                        <p className='total-price'>${item.price * item.quantity}</p>
+                        <p className='total-price'>${(item.price * item.quantity).toFixed(2)}</p>
                       </div>
                     </div>
                   </div>
