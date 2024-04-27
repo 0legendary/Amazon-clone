@@ -50,7 +50,7 @@ function HeaderBottom() {
                 <div className='inner-side-bar'>
                   {
                     userInfo ? (
-                      <img className='account-image' src={userInfo.image} alt="User image" />
+                      <img className='account-image' src={userInfo.image} alt="User-icon" />
                     ) : (<AccountCircleIcon />)
                   }
                   {
