@@ -23,7 +23,7 @@ function Signup() {
   const [ErrCPassword, setErrCPassword] = useState("")
   const [FirebaseErr, setFirebaseErr] = useState("")
 
- 
+
   //Loading message
   const [loading, setLoading] = useState(false)
   const [SuccessMsg, setSuccessMsg] = useState("")
@@ -88,7 +88,7 @@ function Signup() {
       && Password.length >= 6
       && CPassword
       && CPassword === Password) {
-      
+
 
       setLoading(true)
       createUserWithEmailAndPassword(auth, Email, Password)
@@ -98,14 +98,12 @@ function Signup() {
             photoURL: 'https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_1280.png'
           })
           // Signed in 
-          const user = userCredential.user;
+          //const user = userCredential.user;
           setLoading(false)
           setSuccessMsg("Account Created Successfully!")
           setTimeout(() => {
             navigate("/signin")
           }, 3000)
-
-
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -123,13 +121,19 @@ function Signup() {
       setCPassword("")
       setFirebaseErr("")
     }
+    console.log('Name:', ClientName);
+  console.log('Email:', Email);
+  console.log('Password:', Password);
+  console.log('Confirm Password:', CPassword);
 
   }
   return (
     <div className='sign-in-container'>
       <div className='sign-in-form'>
         <form className='signin-form'>
-          <img className='signin-logo' src={darkLogo} alt="Logo" />
+          <Link to="/">
+            <img className='signin-logo' src={darkLogo} alt="Logo" />
+          </Link>
           <div className='signin-heading border'>
             <h2 className='form-heading'>Create Account</h2>
             <div className='form-columns '>
